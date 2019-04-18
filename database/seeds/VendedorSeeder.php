@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Faker\Factory as Faker;
 
 class VendedorSeeder extends Seeder
 {
@@ -13,11 +12,24 @@ class VendedorSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
-            $faker = Faker::create();
-            DB::table('vendedores')->insert([
-                'nome' => $faker->name
-            ]);
-        }
+        DB::table('vendedores')->insert([
+            'nome' => "Felipe"
+        ]);
+
+        DB::table('vendedores')->insert([
+            'nome' => "Glaucio"
+        ]);
+
+        DB::table('vendedores')->insert([
+            'nome' => "Rodrigo"
+        ]);
+
+        DB::table('vendedores')->insert([
+            'nome' => "Fabio"
+        ]);
+
+        DB::table('vendedores')->insert([
+            'nome' => "João"
+        ]);
     }
 }
