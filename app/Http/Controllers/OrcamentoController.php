@@ -70,7 +70,6 @@ class OrcamentoController extends Controller
             foreach ($dados["produtos"] as $produto) {
                 $orcamentoProduto = new OrcamentoProduto();
                 $totalProdutos += $produto["valor"] * $produto["quantidade"];
-                $orcamentoProduto->produto_id = $produto["id"];
                 $orcamentoProduto->valor = $produto["valor"];
                 $orcamentoProduto->quantidade = $produto["quantidade"];
                 $produtos[] = $orcamentoProduto;
