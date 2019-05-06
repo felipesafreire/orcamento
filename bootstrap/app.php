@@ -25,6 +25,12 @@ $app->withFacades();
 
 $app->withEloquent();
 
+
+/* CORS */
+$app->configure('cors');
+
+$app->register(Barryvdh\Cors\ServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -65,6 +71,10 @@ $app->singleton(
 //     'auth' => App\Http\Middleware\Authenticate::class,
 // ]);
 
+$app->routeMiddleware([
+    'cors' => \Barryvdh\Cors\HandleCors::class,
+]);
+
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
@@ -79,6 +89,9 @@ $app->singleton(
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+
+$app->register(SwooleTW\Http\LumenServiceProvider::class);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -96,5 +109,9 @@ $app->router->group([
 ], function ($router) {
     require __DIR__.'/../routes/web.php';
 });
+
+
+
+
 
 return $app;
